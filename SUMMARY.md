@@ -153,7 +153,14 @@
 
 ## 9⃣ Automation
 
-* [Page 8](automation/page-8.md)
+* [Introduction to Python](automation/introduction-to-python.md)
+* [Introduction to REST API](automation/introduction-to-rest-api.md)
+* [Network Automation and Orchestration](automation/network-automation-and-orchestration.md)
+* [Data Models and Structures](automation/data-models-and-structures.md)
+* [Device Programmability](automation/device-programmability.md)
+* [Embedded Event Manager (EEM)](automation/embedded-event-manager-eem.md)
+* [IP SLA EEM Script](automation/ip-sla-eem-script.md)
+* [Configuration Management Tools and Version Control System (VCS)](automation/configuration-management-tools-and-version-control-system-vcs.md)
 
 ## 🔟 Virtualization
 
