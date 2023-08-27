@@ -120,7 +120,13 @@
 
 ## 3⃣ Wireless
 
-* [Page 3](wireless/page-3.md)
+* [Deployment Models](wireless/deployment-models/README.md)
+  * [Cisco Wireless Network Architecture](wireless/deployment-models/cisco-wireless-network-architecture.md)
+  * [Cisco WLC Deployment Models](wireless/deployment-models/cisco-wlc-deployment-models.md)
+  * [Cisco Wireless AP Modes](wireless/deployment-models/cisco-wireless-ap-modes.md)
+* [Infrastructure](wireless/infrastructure/README.md)
+  * [Wireless LAN 802.11 Service Sets](wireless/infrastructure/wireless-lan-802.11-service-sets.md)
+  * [Cisco WLC Basic Configuration](wireless/infrastructure/cisco-wlc-basic-configuration.md)
 
 ## 4⃣ Multicast
 
