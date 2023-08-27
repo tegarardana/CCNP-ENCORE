@@ -23,7 +23,7 @@ We also call these data formats “data serialization languages”. Another data
 
 Each item you add has to **start with < and end with >**. Here is a simple example:
 
-```<devices>
+```xml
   <router>
     <name>CSR1000V</name>
     <vendor>Cisco</vendor>
@@ -63,7 +63,7 @@ end
 
 In XML, it looks like this:
 
-```
+```xml
 R1#show running-config | format
 <?xml version="1.0" encoding="UTF-8"?>
 <Device-Configuration
@@ -153,7 +153,7 @@ Internet  192.168.1.3                -   fa16.3ee0.a5a5  ARPA   FastEthernet0/0
 
 And in XML, it looks like this:
 
-```r1#
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
   <ShowArp xmlns="ODM://disk0:/spec.odm//show_arp">
     <ARPTable>
@@ -199,7 +199,7 @@ Let’s convert our first XML example into JSON.
 
 XML:
 
-```<devices>
+```xml
   <router>
     <name>CSR1000V</name>
     <vendor>Cisco</vendor>
@@ -215,7 +215,7 @@ XML:
 
 JSON:
 
-```
+```json
   "devices": {
     "router": [
       {
@@ -252,7 +252,7 @@ Let’s compare JSON with YAML. Here’s the JSON object I showed you before:
 
 JSON:
 
-```
+```json
 {
   "devices": {
     "router": [
@@ -273,7 +273,7 @@ JSON:
 
 Here it is in YAML:
 
-```
+```yaml
 devices: 
  router: 
   - name: CSR1000V
@@ -317,7 +317,7 @@ You can find a collection of YANG modules in the [YANG git repository](https://g
 
 There are many module files in the repository. Here is the [ARP module](https://github.com/YangModels/yang/blob/master/vendor/cisco/xe/16101/Cisco-IOS-XE-arp.yang) to create a static ARP entry:
 
-```
+```yang
 module Cisco-IOS-XE-arp {
   namespace "http://cisco.com/ns/yang/Cisco-IOS-XE-arp";
   prefix ios-arp;
@@ -439,7 +439,7 @@ Above you can see that “Cisco-IOS-XE-arp” is the name of the YANG module. Th
 
 The output above is difficult to read. There is a useful tool called pyang that creates an easily readable tree format. Pyang also shows all user configurable fields (rw) and state values (ro). Here is an example:
 
-<pre><code><strong>pyang -f tree Cisco-IOS-XE-arp.yang
+<pre class="language-yang"><code class="lang-yang"><strong>pyang -f tree Cisco-IOS-XE-arp.yang
 </strong>
 module: Cisco-IOS-XE-arp
   augment /ios:native:

@@ -91,7 +91,7 @@ An inventory file like the one I use above is fine for labs but you can’t use 
 
 To perform an action on the server, we need to create _playbooks_. A playbook is a YAML file. Let’s create one to update all packages on the server:
 
-```---
+```yaml
 - hosts: ubuntu-servers
   become: yes
   tasks:
@@ -109,7 +109,7 @@ Let me walk you through this file:
 
 Let’s run the playbook:
 
-<pre><code><strong>ansible-playbook -i ./inventory/hosts playbooks/update_upgrade_packages.yml
+<pre class="language-yaml"><code class="lang-yaml"><strong>ansible-playbook -i ./inventory/hosts playbooks/update_upgrade_packages.yml
 </strong>
 PLAY [ubuntu-servers]
 ****************************
@@ -131,7 +131,7 @@ ubuntu-test-server         : ok=2    changed=1    unreachable=0    failed=0
 
 Ansible tells me it ran the playbook and the “ok=2” tells me there are no errors. Let’s look at another example. What if I want to install a package? For example, the Apache webserver. Let’s create another playbook:
 
-```---
+```yaml
 # Install Apache Webserver
 - hosts: ubuntu-servers
   become: yes
@@ -144,7 +144,7 @@ Ansible tells me it ran the playbook and the “ok=2” tells me there are no er
 
 Let’s run the playbook:
 
-<pre><code><strong>ansible-playbook -i ./inventory/hosts playbooks/install_apache.yml
+<pre class="language-yaml"><code class="lang-yaml"><strong>ansible-playbook -i ./inventory/hosts playbooks/install_apache.yml
 </strong>
 
 PLAY [ubuntu-servers]
@@ -165,7 +165,7 @@ ubuntu-test-server         : ok=2    changed=1    unreachable=0    failed=0
 
 Ansible tells me that it went OK and also shows “changed=1” which means it successfully ran the playbook. Ansible checks if a package is already installed. If I run the playbook again, you can see it won’t try to install the package again:
 
-<pre><code><strong>ansible-playbook -i ./inventory/hosts playbooks/install_apache.yml
+<pre class="language-yaml"><code class="lang-yaml"><strong>ansible-playbook -i ./inventory/hosts playbooks/install_apache.yml
 </strong>
 PLAY [ubuntu-servers]
 ****************************
@@ -187,7 +187,7 @@ ubuntu-test-server         : ok=2    changed=0    unreachable=0    failed=0
 
 In the output above, you see that the number of changes is now 0. Let’s copy a test HTML file to our web server:
 
-<pre><code><strong>ansible-playbook -i ./inventory/hosts playbooks/copy_html_file.yml
+<pre class="language-yaml"><code class="lang-yaml"><strong>ansible-playbook -i ./inventory/hosts playbooks/copy_html_file.yml
 </strong>PLAY [ubuntu-servers]
 ****************************
 
@@ -207,7 +207,7 @@ ubuntu-test-server         : ok=2    changed=1    unreachable=0    failed=0
 
 Ansible was able to copy our HTML file. Let’s request that webpage:
 
-<pre><code><strong>curl http://10.56.101.21/index.html
+<pre class="language-html"><code class="lang-html"><strong>curl http://10.56.101.21/index.html
 </strong>&#x3C;!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
 &#x3C;HTML>
    &#x3C;HEAD>
@@ -278,7 +278,7 @@ Let’s see if I can run the `show ip interface brief` command through Ansible o
 
 Let’s run it:
 
-<pre><code><strong>ansible-playbook -i ./inventory/hosts playbooks/show_ip_interface_brief.yml
+<pre class="language-yaml"><code class="lang-yaml"><strong>ansible-playbook -i ./inventory/hosts playbooks/show_ip_interface_brief.yml
 </strong>
 PLAY [campus] 
 ****************************
@@ -375,7 +375,7 @@ Very nice.  We see the output of the `show ip interface brief` command on all fo
 
 Here’s the playbook:
 
-```---
+```yaml
 - hosts: campus
   gather_facts: no
   connection: local
@@ -410,7 +410,7 @@ Here’s the playbook:
 
 Let’s run this playbook:
 
-```
+```yaml
 ansible-playbook -i ./inventory/hosts playbooks/configure_ntp_dns.yml
 
 PLAY [campus]
@@ -620,7 +620,7 @@ This cluster has a single node. Are there any pods?
 
 There are no pods so let’s create something. A deployment is a Kubernetes object where we describe what containers we want to use in our pod, and how many pods we want to use. We can use a YAML file for this:
 
-```
+```yaml
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
