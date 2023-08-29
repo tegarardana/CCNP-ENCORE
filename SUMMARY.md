@@ -164,4 +164,11 @@
 
 ## 🔟 Virtualization
 
-* [Page 9](virtualization/page-9.md)
+* [SDN](virtualization/sdn/README.md)
+  * [SDN OpenDayLight](virtualization/sdn/sdn-opendaylight.md)
+* [Virtualization Technologies](virtualization/virtualization-technologies/README.md)
+  * [Containers and Virtual Machine (VM)](virtualization/virtualization-technologies/containers-and-virtual-machine-vm.md)
+  * [Virtualization Function (NFVI,VNF)](virtualization/virtualization-technologies/virtualization-function-nfvi-vnf.md)
+  * [Introduction to Cloud Computing](virtualization/virtualization-technologies/introduction-to-cloud-computing.md)
+  * [Cisco Switch Virtualization](virtualization/virtualization-technologies/cisco-switch-virtualization.md)
+  * [EIGRP Over The Top (OTP)](virtualization/virtualization-technologies/eigrp-over-the-top-otp.md)
