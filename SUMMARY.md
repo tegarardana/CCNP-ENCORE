@@ -130,7 +130,16 @@
 
 ## 4⃣ Multicast
 
-* [Page 4](multicast/page-4.md)
+* [Introduction to Multicast](multicast/introduction-to-multicast.md)
+* [Multicast IP Address](multicast/multicast-ip-address.md)
+* [Multicast IP to MAC Address Mapping](multicast/multicast-ip-to-mac-address-mapping.md)
+* [IGMP Version 1](multicast/igmp-version-1.md)
+* [IGMP Version 2](multicast/igmp-version-2.md)
+* [IGMP Version 3](multicast/igmp-version-3.md)
+* [IGMP Snooping](multicast/igmp-snooping.md)
+* [Multicast Routing](multicast/multicast-routing.md)
+* [Multicast PIM Dense Mode](multicast/multicast-pim-dense-mode.md)
+* [Page](multicast/page.md)
 
 ## 5⃣ Network Architecture
 
