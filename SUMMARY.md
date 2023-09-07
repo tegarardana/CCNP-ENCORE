@@ -141,6 +141,11 @@
 * [Multicast PIM Dense Mode](multicast/multicast-pim-dense-mode.md)
 * [Multicast Sparse-Dense Mode](multicast/multicast-sparse-dense-mode.md)
 * [Multicast PIM Sparse Mode](multicast/multicast-pim-sparse-mode.md)
+* [Multicast PIM Auto-RP](multicast/multicast-pim-auto-rp.md)
+* [Multicast PIM Bootstrap Router (BSR)](multicast/multicast-pim-bootstrap-router-bsr.md)
+* [Multicast RPF (Reverse Path Forwarding)](multicast/multicast-rpf-reverse-path-forwarding.md)
+* [Multicast PIM Assert (Forwarder)](multicast/multicast-pim-assert-forwarder.md)
+* [Multicast PIM Designated Router (DR)](multicast/multicast-pim-designated-router-dr.md)
 
 ## 5⃣ Network Architecture
 

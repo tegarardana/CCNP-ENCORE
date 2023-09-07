@@ -1,7 +1,3 @@
----
-description: Not Finished
----
-
 # Multicast PIM Sparse Mode
 
 In this lesson we’ll take a look at PIM sparse mode which works about the opposite of how [PIM dense mode](https://networklessons.com/cisco/ccnp-encor-350-401/multicast-pim-dense-mode) works. With PIM dense mode, we flood multicast traffic everywhere and then we prune it.
@@ -919,27 +915,224 @@ Above you can see the PIM prune packet that R4 has sent towards the RP. It tells
 [Multicast PIM Sparse Prune Packet](https://www.cloudshark.org/captures/8804ca52f5a7)
 
 {% tabs %}
-{% tab title="First Tab" %}
-
+{% tab title="Configuration" %}
+Want to take a look for yourself? Here you will find the final configuration of each device.
 {% endtab %}
 
-{% tab title="Second Tab" %}
+{% tab title="H3" %}
+```
+hostname H3
+!
+no ip routing
+!
+interface GigabitEthernet0/1
+ ip address 192.168.3.3 255.255.255.0
+ no ip route-cache
+ ip igmp join-group 239.3.3.3
+ duplex auto
+ speed auto
+ media-type rj45
+!
+ip default-gateway 192.168.3.254
+!
+end
+```
+{% endtab %}
 
+{% tab title="H4" %}
+```
+hostname H4
+!
+no ip routing
+!
+interface GigabitEthernet0/1
+ ip address 192.168.4.4 255.255.255.0
+ no ip route-cache
+ ip igmp join-group 239.4.4.4
+ duplex auto
+ speed auto
+ media-type rj45
+!
+ip default-gateway 192.168.4.254
+!
+end
+```
+{% endtab %}
+
+{% tab title="R1" %}
+```
+hostname R1
+!
+ip multicast-routing 
+!
+interface GigabitEthernet0/1
+ ip address 192.168.12.1 255.255.255.0
+ ip pim sparse-mode
+ duplex auto
+ speed auto
+ media-type rj45
+!
+interface GigabitEthernet0/2
+ ip address 192.168.14.1 255.255.255.0
+ ip pim sparse-mode
+ duplex auto
+ speed auto
+ media-type rj45
+!
+interface GigabitEthernet0/3
+ ip address 192.168.1.254 255.255.255.0
+ ip pim sparse-mode
+ duplex auto
+ speed auto
+ media-type rj45
+!
+router ospf 1
+ network 192.168.1.0 0.0.0.255 area 0
+ network 192.168.12.0 0.0.0.255 area 0
+ network 192.168.14.0 0.0.0.255 area 0
+!
+ip pim rp-address 2.2.2.2
+no ip pim autorp
+!
+end
+```
+{% endtab %}
+
+{% tab title="R2" %}
+```
+hostname R2
+!
+ip multicast-routing 
+!
+interface Loopback0
+ ip address 2.2.2.2 255.255.255.255
+!
+interface GigabitEthernet0/1
+ ip address 192.168.12.2 255.255.255.0
+ ip pim sparse-mode
+ duplex auto
+ speed auto
+ media-type rj45
+!
+interface GigabitEthernet0/2
+ ip address 192.168.24.2 255.255.255.0
+ ip pim sparse-mode
+ duplex auto
+ speed auto
+ media-type rj45
+!
+interface GigabitEthernet0/3
+ ip address 192.168.23.2 255.255.255.0
+ ip pim sparse-mode
+ duplex auto
+ speed auto
+ media-type rj45
+!
+router ospf 1
+ network 2.2.2.2 0.0.0.0 area 0
+ network 192.168.12.0 0.0.0.255 area 0
+ network 192.168.23.0 0.0.0.255 area 0
+ network 192.168.24.0 0.0.0.255 area 0
+!
+ip pim rp-address 2.2.2.2
+no ip pim autorp
+!
+end
+```
+{% endtab %}
+
+{% tab title="R3" %}
+```
+hostname R3
+!
+ip multicast-routing 
+!
+interface GigabitEthernet0/1
+ ip address 192.168.23.3 255.255.255.0
+ ip pim sparse-mode
+ duplex auto
+ speed auto
+ media-type rj45
+!
+interface GigabitEthernet0/2
+ ip address 192.168.3.254 255.255.255.0
+ ip pim sparse-mode
+ duplex auto
+ speed auto
+ media-type rj45
+!
+router ospf 1
+ network 192.168.3.0 0.0.0.255 area 0
+ network 192.168.23.0 0.0.0.255 area 0
+!
+ip pim rp-address 2.2.2.2
+no ip pim autorp
+ip pim spt-threshold infinity
+!
+end
+```
+{% endtab %}
+
+{% tab title="R4" %}
+```
+hostname R4
+!
+ip multicast-routing 
+!
+interface GigabitEthernet0/1
+ ip address 192.168.14.4 255.255.255.0
+ ip pim sparse-mode
+ duplex auto
+ speed auto
+ media-type rj45
+!
+interface GigabitEthernet0/2
+ ip address 192.168.24.4 255.255.255.0
+ ip pim sparse-mode
+ duplex auto
+ speed auto
+ media-type rj45
+!
+interface GigabitEthernet0/3
+ ip address 192.168.4.254 255.255.255.0
+ ip pim sparse-mode
+ duplex auto
+ speed auto
+ media-type rj45
+!
+router ospf 1
+ network 192.168.4.0 0.0.0.255 area 0
+ network 192.168.14.0 0.0.0.255 area 0
+ network 192.168.24.0 0.0.0.255 area 0
+!
+ip pim rp-address 2.2.2.2
+no ip pim autorp
+!
+end
+```
+{% endtab %}
+
+{% tab title="S1" %}
+```
+hostname S1
+!
+no ip routing
+!
+interface GigabitEthernet0/1
+ ip address 192.168.1.1 255.255.255.0
+ no ip route-cache
+ duplex auto
+ speed auto
+ media-type rj45
+!
+ip default-gateway 192.168.1.254
+!
+end
+```
 {% endtab %}
 {% endtabs %}
 
-* Configurations
-* H3
-* H4
-* R1
-* R2
-* R3
-* R4
-* S1
-
-Want to take a look for yourself? Here you will find the final configuration of each device.
-
-### Conclusion
+## Conclusion
 
 That’s the end of our PIM sparse mode story. What have we learned?
 
