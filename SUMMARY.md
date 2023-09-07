@@ -139,7 +139,8 @@
 * [IGMP Snooping](multicast/igmp-snooping.md)
 * [Multicast Routing](multicast/multicast-routing.md)
 * [Multicast PIM Dense Mode](multicast/multicast-pim-dense-mode.md)
-* [Page](multicast/page.md)
+* [Multicast Sparse-Dense Mode](multicast/multicast-sparse-dense-mode.md)
+* [Multicast PIM Sparse Mode](multicast/multicast-pim-sparse-mode.md)
 
 ## 5⃣ Network Architecture
 
