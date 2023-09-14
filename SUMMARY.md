@@ -156,7 +156,18 @@
 
 ## 6⃣ Services
 
-* [Page 6](services/page-6.md)
+* [NTP](services/ntp/README.md)
+  * [NTPv4](services/ntp/ntpv4.md)
+  * [Troubleshooting NTP](services/ntp/troubleshooting-ntp.md)
+* [NAT/PAT](services/nat-pat/README.md)
+  * [Static NAT on](services/nat-pat/static-nat-on.md)
+  * [IP NAT Inside Source vs Outside Source](services/nat-pat/ip-nat-inside-source-vs-outside-source.md)
+  * [Dynamic NAT Configuration](services/nat-pat/dynamic-nat-configuration.md)
+  * [PAT Configuration](services/nat-pat/pat-configuration.md)
+  * [NAT Virtual Interfac](services/nat-pat/nat-virtual-interfac.md)
+  * [NAT Port Forwarding](services/nat-pat/nat-port-forwarding.md)
+* [First Hop Redundancy Protocol](services/first-hop-redundancy-protocol/README.md)
+  * [Hot Standby Routing Protocol (HSRP)](services/first-hop-redundancy-protocol/hot-standby-routing-protocol-hsrp.md)
 
 ## 7⃣ Network Assurance
 
